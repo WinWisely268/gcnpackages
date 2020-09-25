@@ -1,7 +1,7 @@
 package auth
 
 import (
-	"github.com/getcouragenow/packages/sys-account/pkg/utilities"
+	"github.com/getcouragenow/packages/sys-core/server/pkg/db"
 	"time"
 
 	"github.com/dgrijalva/jwt-go"
@@ -71,8 +71,8 @@ func (tc *TokenConfig) NewTokenPairs(claimant Claimant) (*TokenPairDetails, erro
 	tpd.RefreshToken = refreshToken
 	tpd.ATExpiry = time.Now().Unix() + tc.AccessExpiration.Milliseconds()
 	tpd.RTExpiry = time.Now().Unix() + tc.RefreshExpiration.Milliseconds()
-	tpd.ATId = utilities.NewID()
-	tpd.RTId = utilities.NewID()
+	tpd.ATId = db.UID()
+	tpd.RTId = db.UID()
 
 	return &tpd, nil
 }

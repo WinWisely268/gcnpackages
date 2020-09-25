@@ -1,1 +1,3 @@
 .idea
+/server/pkg/dao/daotest/
+/server/pkg/dao/getcouragenow.db/

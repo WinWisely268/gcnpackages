@@ -55,6 +55,7 @@ message Account {
   google.protobuf.Timestamp last_login = 7;
   bool disabled = 8;
   UserDefinedFields fields = 9;
+  string name = 10;
 }
 
 message GetAccountRequest {
